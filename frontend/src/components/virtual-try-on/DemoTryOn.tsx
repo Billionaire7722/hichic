@@ -11,6 +11,9 @@ import {
 } from '../../data/virtualTryOn'
 import { useLanguage } from '../../i18n/useLanguage'
 
+import realisticFace from '../../assets/realistic-face.png'
+import fullBodyModel from '../../assets/full-body-model.png'
+
 type MeasurementKey =
   | 'height'
   | 'shoulders'
@@ -353,26 +356,155 @@ export function DemoTryOn() {
             onPointerUp={stopDrag}
             onPointerLeave={stopDrag}
           >
+            <defs>
+              <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#d1a98e" />
+                <stop offset="50%" stopColor="#f3dac8" />
+                <stop offset="100%" stopColor="#c49a7e" />
+              </linearGradient>
+              <linearGradient id="armLeftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#b28464" />
+                <stop offset="100%" stopColor="#e8cfbb" />
+              </linearGradient>
+              <linearGradient id="armRightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#e8cfbb" />
+                <stop offset="100%" stopColor="#b28464" />
+              </linearGradient>
+              <linearGradient id="neckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#af8164" />
+                <stop offset="50%" stopColor="#e4c7b2" />
+                <stop offset="100%" stopColor="#af8164" />
+              </linearGradient>
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#312a25" />
+                <stop offset="50%" stopColor="#554b42" />
+                <stop offset="100%" stopColor="#312a25" />
+              </linearGradient>
+              <linearGradient id="clothShadeCenter" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.25" />
+                <stop offset="35%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="65%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.25" />
+              </linearGradient>
+              <linearGradient id="clothShadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.3" />
+                <stop offset="25%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="clothShadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.1" />
+                <stop offset="75%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.3" />
+              </linearGradient>
+              <linearGradient id="clothHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#fff" stopOpacity="0.0" />
+                <stop offset="45%" stopColor="#fff" stopOpacity="0.15" />
+                <stop offset="55%" stopColor="#fff" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#fff" stopOpacity="0.0" />
+              </linearGradient>
+              <filter id="shadowHeavy" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" floodOpacity="0.2" />
+              </filter>
+              <filter id="shadowLight" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.12" />
+              </filter>
+              <clipPath id="headClip">
+                <ellipse
+                  cx={layout.headCx}
+                  cy={layout.headCy}
+                  rx={layout.headRx}
+                  ry={layout.headRy}
+                />
+              </clipPath>
+            </defs>
+
+            <defs>
+              <radialGradient id="headGrad" cx="35%" cy="35%" r="65%">
+                <stop offset="0%" stopColor="#f3dac8" />
+                <stop offset="60%" stopColor="#d1a98e" />
+                <stop offset="100%" stopColor="#a67b5b" />
+              </radialGradient>
+              <linearGradient id="neckGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#8b6347" />
+                <stop offset="100%" stopColor="#d1a98e" />
+              </linearGradient>
+              <linearGradient id="armLeftGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#a67b5b" />
+                <stop offset="60%" stopColor="#e8cfbb" />
+                <stop offset="100%" stopColor="#c49a7e" />
+              </linearGradient>
+              <linearGradient id="armRightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#c49a7e" />
+                <stop offset="40%" stopColor="#e8cfbb" />
+                <stop offset="100%" stopColor="#a67b5b" />
+              </linearGradient>
+              <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#a67b5b" />
+                <stop offset="50%" stopColor="#e8cfbb" />
+                <stop offset="100%" stopColor="#a67b5b" />
+              </linearGradient>
+              
+              <linearGradient id="clothShadeCenter" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.25" />
+                <stop offset="35%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="65%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.25" />
+              </linearGradient>
+              <linearGradient id="clothShadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.3" />
+                <stop offset="25%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.1" />
+              </linearGradient>
+              <linearGradient id="clothShadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000" stopOpacity="0.1" />
+                <stop offset="75%" stopColor="#000" stopOpacity="0.0" />
+                <stop offset="100%" stopColor="#000" stopOpacity="0.3" />
+              </linearGradient>
+              <linearGradient id="clothHighlight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#fff" stopOpacity="0.0" />
+                <stop offset="45%" stopColor="#fff" stopOpacity="0.15" />
+                <stop offset="55%" stopColor="#fff" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#fff" stopOpacity="0.0" />
+              </linearGradient>
+              <filter id="shadowHeavy" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="12" stdDeviation="14" floodOpacity="0.2" />
+              </filter>
+              <filter id="shadowLight" x="-10%" y="-10%" width="120%" height="130%">
+                <feDropShadow dx="0" dy="4" stdDeviation="6" floodOpacity="0.12" />
+              </filter>
+            </defs>
+
             <rect className="fit-avatar__room" x="20" y="18" width="280" height="584" rx="34" />
             <ellipse className="fit-avatar__shadow" cx="160" cy="594" rx="82" ry="14" />
+            
             <path
-              className="fit-avatar__arms"
+              className="fit-avatar__arm"
               d={`
                 M ${160 - layout.shoulderHalf - 8} ${layout.shoulderY + 10}
                 C ${160 - layout.hipHalf - 38} ${layout.hipY + 30}, ${160 - layout.hipHalf - 18} ${layout.hipY + 122}, ${160 - layout.ankleHalf - 28} ${layout.hemY - 10}
+              `}
+              stroke="url(#armLeftGrad)"
+            />
+            <path
+              className="fit-avatar__arm"
+              d={`
                 M ${160 + layout.shoulderHalf + 8} ${layout.shoulderY + 10}
                 C ${160 + layout.hipHalf + 38} ${layout.hipY + 30}, ${160 + layout.hipHalf + 18} ${layout.hipY + 122}, ${160 + layout.ankleHalf + 28} ${layout.hemY - 10}
               `}
+              stroke="url(#armRightGrad)"
             />
+
             <ellipse
               className="fit-avatar__skin"
               cx={layout.headCx}
               cy={layout.headCy}
               rx={layout.headRx}
               ry={layout.headRy}
+              fill="url(#headGrad)"
             />
             <path
               className="fit-avatar__neck"
+              fill="url(#neckGrad)"
               d={`
                 M ${160 - 17} ${layout.neckTop}
                 L ${160 + 17} ${layout.neckTop}
@@ -383,6 +515,7 @@ export function DemoTryOn() {
             />
             <path
               className="fit-avatar__body"
+              fill="url(#bodyGrad)"
               d={`
                 M ${160 - layout.shoulderHalf} ${layout.shoulderY}
                 C ${160 - layout.bustHalf} ${layout.bustY}, ${160 - layout.waistHalf} ${layout.waistY}, ${160 - layout.hipHalf} ${layout.hipY}
@@ -394,6 +527,7 @@ export function DemoTryOn() {
                 Z
               `}
             />
+
             <g
               className={`fit-avatar__zone${activeRegion === 'upper' ? ' fit-avatar__zone--active' : ''}`}
               role="button"
@@ -414,16 +548,31 @@ export function DemoTryOn() {
             >
               <path d={`M ${160 - layout.hipHalf - 24} ${layout.waistY + 36} H ${160 + layout.hipHalf + 24} V ${layout.hemY + 8} H ${160 - layout.hipHalf - 24} Z`} />
             </g>
+
             {selectedLower.garment === 'trousers' ? (
               <>
-                <path className="fit-avatar__garment fit-avatar__garment--lower" d={leftTrouserPath} fill={lowerColor.swatch} />
-                <path className="fit-avatar__garment fit-avatar__garment--lower" d={rightTrouserPath} fill={lowerColor.swatch} />
+                <path className="fit-avatar__garment fit-avatar__garment--lower" d={leftTrouserPath} fill={lowerColor.swatch} filter="url(#shadowLight)" />
+                <path className="fit-avatar__garment-shade" d={leftTrouserPath} fill="url(#clothShadeLeft)" style={{ mixBlendMode: 'multiply' }} />
+                <path className="fit-avatar__garment-shade" d={leftTrouserPath} fill="url(#clothHighlight)" style={{ mixBlendMode: 'screen' }} />
+                
+                <path className="fit-avatar__garment fit-avatar__garment--lower" d={rightTrouserPath} fill={lowerColor.swatch} filter="url(#shadowLight)" />
+                <path className="fit-avatar__garment-shade" d={rightTrouserPath} fill="url(#clothShadeRight)" style={{ mixBlendMode: 'multiply' }} />
+                <path className="fit-avatar__garment-shade" d={rightTrouserPath} fill="url(#clothHighlight)" style={{ mixBlendMode: 'screen' }} />
+                
                 <path className="fit-avatar__crease" d={`M 160 ${layout.waistY + 58} V ${layout.lowerHemY - 10}`} />
               </>
             ) : (
-              <path className="fit-avatar__garment fit-avatar__garment--lower" d={skirtPath} fill={lowerColor.swatch} />
+              <>
+                <path className="fit-avatar__garment fit-avatar__garment--lower" d={skirtPath} fill={lowerColor.swatch} filter="url(#shadowLight)" />
+                <path className="fit-avatar__garment-shade" d={skirtPath} fill="url(#clothShadeCenter)" style={{ mixBlendMode: 'multiply' }} />
+                <path className="fit-avatar__garment-shade" d={skirtPath} fill="url(#clothHighlight)" style={{ mixBlendMode: 'screen' }} />
+              </>
             )}
-            <path className="fit-avatar__garment fit-avatar__garment--upper" d={upperPath} fill={upperColor.swatch} />
+
+            <path className="fit-avatar__garment fit-avatar__garment--upper" d={upperPath} fill={upperColor.swatch} filter="url(#shadowHeavy)" />
+            <path className="fit-avatar__garment-shade" d={upperPath} fill="url(#clothShadeCenter)" style={{ mixBlendMode: 'multiply' }} />
+            <path className="fit-avatar__garment-shade" d={upperPath} fill="url(#clothHighlight)" style={{ mixBlendMode: 'screen' }} />
+
             <path
               className="fit-avatar__collar"
               d={`
