@@ -1,6 +1,5 @@
 import { BusinessValueCards } from '../components/virtual-try-on/BusinessValueCards'
 import { CTASection } from '../components/virtual-try-on/CTASection'
-import { FeatureLevelCard } from '../components/virtual-try-on/FeatureLevelCard'
 import { JourneySteps } from '../components/virtual-try-on/JourneySteps'
 import { PrivacyTrustSection } from '../components/virtual-try-on/PrivacyTrustSection'
 import { TryOnHero } from '../components/virtual-try-on/TryOnHero'
@@ -32,34 +31,11 @@ function ShoppingInsight() {
   )
 }
 
-function FeatureLevels() {
-  const { m } = useLanguage()
-  const t = m.virtualTryOn.levels
-
-  return (
-    <section className="feature-levels" aria-labelledby="levels-heading">
-      <div className="tryon-section-heading">
-        <p className="section-label">{t.label}</p>
-        <h2 id="levels-heading" className="section-title">
-          {t.heading}
-        </h2>
-        <p className="section-copy">{t.copy}</p>
-      </div>
-      <div className="feature-levels__grid">
-        {t.cards.map((level, index) => (
-          <FeatureLevelCard key={level.title} level={level} index={index} />
-        ))}
-      </div>
-    </section>
-  )
-}
-
 export function VirtualTryOnPage() {
   return (
     <>
       <TryOnHero />
       <ShoppingInsight />
-      <FeatureLevels />
       <UserPhotoTryOn />
       <JourneySteps />
       <BusinessValueCards />
