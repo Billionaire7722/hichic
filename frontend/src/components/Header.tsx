@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { useLanguage } from '../i18n/useLanguage'
 
 type HeaderProps = {
-  currentPage?: 'home' | 'virtual-try-on'
+  currentPage?: 'home' | 'virtual-try-on' | 'collections' | 'product' | 'cart'
 }
 
 export function Header({ currentPage = 'home' }: HeaderProps) {
@@ -11,6 +11,8 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
   const reduceMotion = useReducedMotion()
   const { locale, setLocale, m } = useLanguage()
   const isHome = currentPage === 'home'
+  const isCommerce = currentPage === 'collections' || currentPage === 'product' || currentPage === 'cart'
+  const solidHeader = scrolled || isCommerce
   const homeHref = (hash: string) => (isHome ? hash : `/${hash}`)
 
   useEffect(() => {
@@ -21,7 +23,11 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
   }, [])
 
   const links = [
-    { href: homeHref('#collection'), label: m.nav.collection },
+    {
+      href: '/collections',
+      label: m.nav.collection,
+      current: currentPage === 'collections' || currentPage === 'product',
+    },
     { href: homeHref('#craft'), label: m.nav.craft },
     {
       href: '/virtual-try-on',
@@ -33,7 +39,7 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
 
   return (
     <motion.header
-      className={`site-header${scrolled ? ' site-header--scrolled' : ''}`}
+      className={`site-header${solidHeader ? ' site-header--scrolled' : ''}`}
       initial={reduceMotion ? false : { y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
@@ -75,7 +81,7 @@ export function Header({ currentPage = 'home' }: HeaderProps) {
             {m.langSwitcher.vi}
           </button>
         </div>
-        <a className="site-header__cta" href={homeHref('#collection')}>
+        <a className="site-header__cta" href="/collections">
           {m.header.shop}
         </a>
       </div>

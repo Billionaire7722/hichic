@@ -44,6 +44,28 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## Virtual try-on
+
+Virtual try-on is handled outside this NestJS backend by the workspace
+OpenTryOn service. The backend no longer exposes `/api/tryon/*` routes or stores
+try-on upload/result files.
+
+Set up the OpenTryOn service from the workspace root:
+
+```bash
+npm run setup:opentryon-service
+```
+
+Then run both local services from the workspace root:
+
+```bash
+# terminal 1: Python OpenTryOn service
+npm run dev:opentryon-service
+
+# terminal 2: NestJS backend
+npm run dev:backend
+```
+
 ## Run tests
 
 ```bash

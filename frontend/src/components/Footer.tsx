@@ -1,7 +1,7 @@
 import { useLanguage } from '../i18n/useLanguage'
 
 type FooterProps = {
-  currentPage?: 'home' | 'virtual-try-on'
+  currentPage?: 'home' | 'virtual-try-on' | 'collections' | 'product' | 'cart'
 }
 
 export function Footer({ currentPage = 'home' }: FooterProps) {
@@ -20,10 +20,10 @@ export function Footer({ currentPage = 'home' }: FooterProps) {
           <h3 className="site-footer__heading">{m.footer.shopHeading}</h3>
           <ul>
             <li>
-              <a href={homeHref('#collection')}>{m.footer.skirts}</a>
+              <a href="/collections">{m.footer.skirts}</a>
             </li>
             <li>
-              <a href={homeHref('#collection')}>{m.footer.blouses}</a>
+              <a href="/collections">{m.footer.blouses}</a>
             </li>
             <li>
               <a href="/virtual-try-on">{m.footer.virtualTryOn}</a>

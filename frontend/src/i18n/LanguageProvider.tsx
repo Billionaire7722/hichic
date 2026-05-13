@@ -46,6 +46,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const meta = messages[locale]
     const path = window.location.pathname.replace(/\/+$/, '') || '/'
     const isVirtualTryOn = path === '/virtual-try-on'
+    const isCollections = path === '/collections'
+    const isProduct = path.startsWith('/products/')
+    const isCart = path === '/cart'
     document.title = meta.metaTitle
     let desc = document.querySelector('meta[name="description"]')
     if (!desc) {
@@ -56,6 +59,21 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (isVirtualTryOn) {
       document.title = meta.virtualTryOn.metaTitle
       desc.setAttribute('content', meta.virtualTryOn.metaDescription)
+      return
+    }
+    if (isCollections) {
+      document.title = `${meta.commerce.collectionsPage.title} | Hichic`
+      desc.setAttribute('content', meta.commerce.collectionsPage.intro)
+      return
+    }
+    if (isProduct) {
+      document.title = `${meta.commerce.product.details} | Hichic`
+      desc.setAttribute('content', meta.metaDescription)
+      return
+    }
+    if (isCart) {
+      document.title = `${meta.commerce.cart.title} | Hichic`
+      desc.setAttribute('content', meta.commerce.cart.intro)
       return
     }
     desc.setAttribute('content', meta.metaDescription)

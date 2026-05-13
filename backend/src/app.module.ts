@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CollectionsModule } from './collections/collections.module';
 import { ProductsModule } from './products/products.module';
 import { NewsletterModule } from './newsletter/newsletter.module';
 
@@ -26,6 +27,7 @@ import { NewsletterModule } from './newsletter/newsletter.module';
     }),
 
     ProductsModule,
+    CollectionsModule,
     NewsletterModule,
   ],
 })

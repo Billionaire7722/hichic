@@ -1,3 +1,7 @@
+import garmentBlazer from '../assets/garment-blazer.png'
+import garmentBlouse from '../assets/garment-blouse.png'
+import garmentSkirt from '../assets/garment-skirt.png'
+
 export type Product = {
   id: string
   name: string
@@ -5,33 +9,82 @@ export type Product = {
   price: string
   description: string
   image: string
+  createdAt?: string
+  updatedAt?: string
+}
+
+export type StorefrontCollection = {
+  id: string
+  name: string
+  description: string
+  descriptionVi?: string
+  coverImage: string
+  status?: 'Draft' | 'Published' | 'Hidden'
+  productCount?: number
+  updatedAt?: string
 }
 
 /** Structural catalog — copy comes from i18n (`messages[locale].products`). */
 export const catalog: Omit<Product, 'name' | 'category' | 'description'>[] = [
   {
     id: '1',
-    price: '$148',
-    image:
-      'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=900&q=80',
+    price: '3.700.000 ₫',
+    image: garmentBlouse,
+    createdAt: '2026-05-13T09:00:00.000Z',
   },
   {
     id: '2',
-    price: '$165',
-    image:
-      'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80',
+    price: '4.125.000 ₫',
+    image: garmentSkirt,
+    createdAt: '2026-05-12T09:00:00.000Z',
   },
   {
     id: '3',
-    price: '$112',
-    image:
-      'https://images.unsplash.com/photo-1483988350575-af1b22408832?auto=format&fit=crop&w=900&q=80',
+    price: '2.800.000 ₫',
+    image: garmentBlouse,
+    createdAt: '2026-05-11T09:00:00.000Z',
   },
   {
     id: '4',
-    price: '$158',
-    image:
-      'https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&q=80',
+    price: '3.950.000 ₫',
+    image: garmentSkirt,
+    createdAt: '2026-05-10T09:00:00.000Z',
+  },
+  {
+    id: '5',
+    price: '5.450.000 ₫',
+    image: garmentBlazer,
+    createdAt: '2026-05-09T09:00:00.000Z',
+  },
+]
+
+export const fallbackStorefrontCollections: StorefrontCollection[] = [
+  {
+    id: 'home-secretary-kim',
+    name: 'Thư kí kim',
+    description: 'Soft blouses and composed desk-to-dinner layers.',
+    descriptionVi: 'Áo mềm và các lớp phối chỉn chu từ bàn làm việc đến buổi tối.',
+    coverImage: garmentBlouse,
+    status: 'Published',
+    productCount: 2,
+  },
+  {
+    id: 'home-pencil-skirt',
+    name: 'Quần bút chì',
+    description: 'Sharp pencil silhouettes with clean movement.',
+    descriptionVi: 'Phom bút chì sắc gọn nhưng vẫn dễ chuyển động.',
+    coverImage: garmentSkirt,
+    status: 'Published',
+    productCount: 2,
+  },
+  {
+    id: 'home-blazer',
+    name: 'Áo blazer',
+    description: 'Structured jackets for precise office polish.',
+    descriptionVi: 'Blazer có cấu trúc cho vẻ ngoài công sở sắc nét.',
+    coverImage: garmentBlazer,
+    status: 'Published',
+    productCount: 1,
   },
 ]
 

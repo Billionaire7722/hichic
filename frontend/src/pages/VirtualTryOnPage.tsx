@@ -1,10 +1,10 @@
 import { BusinessValueCards } from '../components/virtual-try-on/BusinessValueCards'
 import { CTASection } from '../components/virtual-try-on/CTASection'
-import { DemoTryOn } from '../components/virtual-try-on/DemoTryOn'
 import { FeatureLevelCard } from '../components/virtual-try-on/FeatureLevelCard'
 import { JourneySteps } from '../components/virtual-try-on/JourneySteps'
 import { PrivacyTrustSection } from '../components/virtual-try-on/PrivacyTrustSection'
 import { TryOnHero } from '../components/virtual-try-on/TryOnHero'
+import { UserPhotoTryOn } from '../components/virtual-try-on/UserPhotoTryOn'
 import { useLanguage } from '../i18n/useLanguage'
 
 function ShoppingInsight() {
@@ -60,7 +60,7 @@ export function VirtualTryOnPage() {
       <TryOnHero />
       <ShoppingInsight />
       <FeatureLevels />
-      <DemoTryOn />
+      <UserPhotoTryOn />
       <JourneySteps />
       <BusinessValueCards />
       <PrivacyTrustSection />

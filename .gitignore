@@ -30,3 +30,16 @@ dist-ssr
 
 # Docker volumes (if bind-mounted locally)
 postgres_data/
+
+# Runtime uploads and generated AI outputs
+backend/uploads/
+idm-vton-service/outputs/
+idm-vton-service/tmp/
+opentryon-service/outputs/
+opentryon-service/tmp/
+opentryon-service/.venv/
+opentryon-service/.pip-cache/
+opentryon-service/.tmp/
+.venv/
+__pycache__/
+*.pyc

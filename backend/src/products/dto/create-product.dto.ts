@@ -39,6 +39,10 @@ export class CreateProductDto {
   @IsNotEmpty()
   image: string;
 
+  @IsString()
+  @IsOptional()
+  imagePublicId?: string;
+
   @IsOptional()
   @IsIn(['shirt', 'blazer', 'trousers', 'skirt'])
   garment?: string;
