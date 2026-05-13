@@ -6,6 +6,8 @@
   "scripts": {
     "dev:frontend": "npm run dev --prefix frontend",
     "dev:backend": "npm run start:dev --prefix backend",
+    "setup:opentryon-service": "powershell -ExecutionPolicy Bypass -File opentryon-service/scripts/setup.ps1",
+    "dev:opentryon-service": "powershell -ExecutionPolicy Bypass -File opentryon-service/scripts/run.ps1",
     "db:up": "docker compose up postgres -d",
     "db:down": "docker compose down",
     "docker:up": "docker compose up -d",

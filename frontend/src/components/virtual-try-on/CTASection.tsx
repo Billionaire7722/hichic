@@ -11,7 +11,7 @@ export function CTASection() {
         <h2 id="tryon-cta-heading">{t.heading}</h2>
         <p>{t.copy}</p>
         <div className="tryon-cta__actions">
-          <a className="btn btn--primary" href="#demo">
+          <a className="btn btn--primary" href="#photo-try-on">
             {t.primary}
           </a>
           <a className="btn btn--ghost" href="/">

@@ -49,7 +49,7 @@ export function TryOnHero() {
           </h1>
           <p className="tryon-hero__lede">{t.lede}</p>
           <div className="tryon-hero__actions">
-            <a className="btn btn--ink" href="#demo">
+            <a className="btn btn--ink" href="#photo-try-on">
               {t.ctaPrimary}
             </a>
             <a className="btn btn--outline" href="#how-it-works">

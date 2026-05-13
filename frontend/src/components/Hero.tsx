@@ -59,7 +59,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: reduceMotion ? 0 : 0.52, duration: 0.5 }}
         >
-          <a className="btn btn--primary" href="#collection">
+          <a className="btn btn--primary" href="/collections">
             {m.hero.ctaPrimary}
           </a>
           <a className="btn btn--ghost" href="#craft">

@@ -9,11 +9,11 @@ export type DemoProduct = {
   id: string
   name: string
   category: string
-  garment: 'shirt' | 'blazer' | 'trousers' | 'skirt'
+  garment: 'shirt' | 'blazer' | 'trousers' | 'skirt' | 'dress'
   swatch: string
 }
 
-export type ProductRegion = 'upper' | 'lower'
+export type ProductRegion = 'upper' | 'lower' | 'full'
 
 export type ProductColor = {
   id: string
@@ -28,7 +28,7 @@ export type FitProduct = {
   name: string
   category: string
   price: string
-  garment: 'shirt' | 'blazer' | 'trousers' | 'skirt'
+  garment: 'shirt' | 'blazer' | 'trousers' | 'skirt' | 'dress'
   image: string
   defaultLength: number
   lengthRange?: [number, number]
@@ -266,6 +266,28 @@ export const fitProducts: FitProduct[] = [
       {
         id: 'winter-white',
         name: 'Winter white',
+        swatch: '#eee8dd',
+        stock: 'out-of-stock',
+      },
+    ],
+  },
+  {
+    id: 'executive-sheath-dress',
+    region: 'full',
+    name: 'Executive Sheath Dress',
+    category: 'Structured office dress',
+    price: '$214',
+    garment: 'dress',
+    image:
+      'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80',
+    defaultLength: 98,
+    lengthRange: [88, 112],
+    colors: [
+      { id: 'espresso', name: 'Espresso', swatch: '#43382f', stock: 'in-stock' },
+      { id: 'ink', name: 'Ink', swatch: '#24211f', stock: 'in-stock' },
+      {
+        id: 'winter-cream',
+        name: 'Winter cream',
         swatch: '#eee8dd',
         stock: 'out-of-stock',
       },

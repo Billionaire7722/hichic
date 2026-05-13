@@ -38,6 +38,64 @@ export type Messages = {
     heading: string
     copy: string
   }
+  commerce: {
+    home: {
+      newArrivalsTitle: string
+      newArrivalsCopy: string
+      seeAll: string
+      collectionTitle: string
+      collectionCopy: string
+    }
+    collectionsPage: {
+      title: string
+      intro: string
+      filtersLabel: string
+      allCollections: string
+      productCount: string
+      emptyTitle: string
+      emptyText: string
+      viewDetails: string
+    }
+    product: {
+      backToCollections: string
+      collection: string
+      chooseSize: string
+      chooseColor: string
+      addToCart: string
+      tryOn: string
+      details: string
+      detailsText: string
+      care: string
+      careText: string
+      shipping: string
+      shippingText: string
+    }
+    cart: {
+      title: string
+      intro: string
+      emptyTitle: string
+      continueShopping: string
+      orderSummary: string
+      quantity: string
+      subtotal: string
+      shipping: string
+      shippingValue: string
+      total: string
+      paymentInfo: string
+      contactInfo: string
+      fullName: string
+      email: string
+      phone: string
+      address: string
+      cardName: string
+      cardNumber: string
+      expiry: string
+      cvc: string
+      savePayment: string
+      paymentNote: string
+      confirmation: string
+    }
+  }
   editorial: {
     label: string
     title: string
@@ -100,10 +158,73 @@ export const messages: Record<Locale, Messages> = {
       ctaVirtualTryOn: 'Try Virtual Try-On',
     },
     collection: {
-      label: 'New arrivals',
-      heading: 'Skirts & blouses',
+      label: '',
+      heading: 'Collections',
       copy:
-        'Washed silks, pressed creases, and linings chosen for real desks and real seasons.',
+        'Explore polished office pieces by the way they fit into your workweek.',
+    },
+    commerce: {
+      home: {
+        newArrivalsTitle: 'New arrivals',
+        newArrivalsCopy: 'The newest products added by the Hichic admin team.',
+        seeAll: 'See all',
+        collectionTitle: 'Collection',
+        collectionCopy: 'Three edited wardrobes that can be managed from the admin collections page.',
+      },
+      collectionsPage: {
+        title: 'Collections',
+        intro:
+          'Browse the same Hichic edits from the homepage, then filter by collection to compare pieces for the office, commute, and evening plans.',
+        filtersLabel: 'Filter by collection',
+        allCollections: 'All collections',
+        productCount: 'pieces',
+        emptyTitle: 'No pieces in this collection yet.',
+        emptyText: 'Choose another collection or return to the full edit.',
+        viewDetails: 'View details',
+      },
+      product: {
+        backToCollections: 'Back to collections',
+        collection: 'Collection',
+        chooseSize: 'Choose size',
+        chooseColor: 'Choose color',
+        addToCart: 'Add to cart',
+        tryOn: 'Try Virtual Try-On',
+        details: 'Details',
+        detailsText:
+          'Cut for a clean office line with enough ease for desks, commutes, and long meeting days.',
+        care: 'Care',
+        careText:
+          'Steam lightly, hang after wear, and dry clean when the lining needs a full refresh.',
+        shipping: 'Shipping',
+        shippingText:
+          'Complimentary domestic delivery, with hemming notes reviewed before dispatch.',
+      },
+      cart: {
+        title: 'Cart & payment',
+        intro:
+          'Review the selected piece and keep the payment fields ready for checkout handoff.',
+        emptyTitle: 'Your cart is ready for a piece.',
+        continueShopping: 'Continue shopping',
+        orderSummary: 'Order summary',
+        quantity: 'Quantity',
+        subtotal: 'Subtotal',
+        shipping: 'Shipping',
+        shippingValue: 'Complimentary',
+        total: 'Total',
+        paymentInfo: 'Payment information',
+        contactInfo: 'Contact information',
+        fullName: 'Full name',
+        email: 'Email',
+        phone: 'Phone',
+        address: 'Delivery address',
+        cardName: 'Name on card',
+        cardNumber: 'Card number',
+        expiry: 'Expiry',
+        cvc: 'CVC',
+        savePayment: 'Save payment information',
+        paymentNote: 'Demo payment details are filled in for frontend review only.',
+        confirmation: 'Payment information saved for this checkout preview.',
+      },
     },
     editorial: {
       label: 'Craft',
@@ -155,6 +276,11 @@ export const messages: Record<Locale, Messages> = {
         category: 'Skirts',
         description: 'Wool blend, pressed crease, sits at the natural waist.',
       },
+      '5': {
+        name: 'Sandline Blazer',
+        category: 'Blazers',
+        description: 'Structured shoulders and a soft linen-viscose drape.',
+      },
     },
     virtualTryOn: virtualTryOnMessages.en,
   },
@@ -187,10 +313,73 @@ export const messages: Record<Locale, Messages> = {
       ctaVirtualTryOn: 'Thử đồ ảo',
     },
     collection: {
-      label: 'Hàng mới',
-      heading: 'Chân váy & áo',
+      label: '',
+      heading: 'Bộ sưu tập',
       copy:
-        'Lụa mềm, nếp phẳng và lót trong được chọn cho bàn làm việc thật và từng mùa.',
+        'Khám phá các thiết kế công sở theo cách chúng đồng hành trong tuần làm việc.',
+    },
+    commerce: {
+      home: {
+        newArrivalsTitle: 'Hàng mới',
+        newArrivalsCopy: 'Những sản phẩm mới nhất được thêm từ trang quản trị Hichic.',
+        seeAll: 'Xem tất cả',
+        collectionTitle: 'Bộ sưu tập',
+        collectionCopy: 'Ba nhóm trang phục có thể thêm, sửa hoặc xóa từ trang quản trị bộ sưu tập.',
+      },
+      collectionsPage: {
+        title: 'Bộ sưu tập',
+        intro:
+          'Xem lại các nhóm sản phẩm Hichic trên trang chủ, rồi lọc theo bộ sưu tập để so sánh trang phục cho văn phòng, di chuyển và buổi tối.',
+        filtersLabel: 'Lọc theo bộ sưu tập',
+        allCollections: 'Tất cả bộ sưu tập',
+        productCount: 'sản phẩm',
+        emptyTitle: 'Chưa có sản phẩm trong bộ sưu tập này.',
+        emptyText: 'Chọn bộ sưu tập khác hoặc quay lại toàn bộ danh sách.',
+        viewDetails: 'Xem chi tiết',
+      },
+      product: {
+        backToCollections: 'Quay lại bộ sưu tập',
+        collection: 'Bộ sưu tập',
+        chooseSize: 'Chọn kích cỡ',
+        chooseColor: 'Chọn màu',
+        addToCart: 'Thêm vào giỏ',
+        tryOn: 'Thử đồ ảo',
+        details: 'Chi tiết',
+        detailsText:
+          'Phom gọn cho công sở nhưng vẫn đủ thoải mái khi ngồi làm việc, di chuyển và họp dài.',
+        care: 'Chăm sóc',
+        careText:
+          'Hấp hơi nhẹ, treo sau khi mặc và giặt khô khi lớp lót cần làm mới toàn bộ.',
+        shipping: 'Giao hàng',
+        shippingText:
+          'Miễn phí giao hàng nội địa, ghi chú chỉnh lai được kiểm tra trước khi gửi.',
+      },
+      cart: {
+        title: 'Giỏ hàng & thanh toán',
+        intro:
+          'Kiểm tra sản phẩm đã chọn và giữ sẵn thông tin thanh toán cho bước checkout.',
+        emptyTitle: 'Giỏ hàng đang chờ sản phẩm.',
+        continueShopping: 'Tiếp tục mua sắm',
+        orderSummary: 'Tóm tắt đơn hàng',
+        quantity: 'Số lượng',
+        subtotal: 'Tạm tính',
+        shipping: 'Giao hàng',
+        shippingValue: 'Miễn phí',
+        total: 'Tổng cộng',
+        paymentInfo: 'Thông tin thanh toán',
+        contactInfo: 'Thông tin liên hệ',
+        fullName: 'Họ và tên',
+        email: 'Email',
+        phone: 'Điện thoại',
+        address: 'Địa chỉ giao hàng',
+        cardName: 'Tên trên thẻ',
+        cardNumber: 'Số thẻ',
+        expiry: 'Hết hạn',
+        cvc: 'CVC',
+        savePayment: 'Lưu thông tin thanh toán',
+        paymentNote: 'Thông tin thanh toán mẫu chỉ dùng để kiểm tra frontend.',
+        confirmation: 'Đã lưu thông tin thanh toán cho bản xem trước checkout.',
+      },
     },
     editorial: {
       label: 'Chất liệu',
@@ -241,6 +430,11 @@ export const messages: Record<Locale, Messages> = {
         name: 'Chân váy bút chì midi',
         category: 'Chân váy',
         description: 'Len pha, nếp giữa phẳng, ôm eo tự nhiên.',
+      },
+      '5': {
+        name: 'Blazer Sandline',
+        category: 'Blazer',
+        description: 'Vai gọn, phom đứng và độ rủ mềm từ linen pha viscose.',
       },
     },
     virtualTryOn: virtualTryOnMessages.vi,

@@ -200,10 +200,10 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
       ],
     },
     demo: {
-      label: 'Interactive fit studio',
-      heading: 'Adjust a body profile, then dress each area',
+      label: 'Virtual fitting room',
+      heading: 'Virtual Fitting Room for office fashion',
       copy:
-        'Drag the handles or enter exact centimeter measurements. Click the upper body for shirts and blazers, or the waist and hips for pants and skirts.',
+        'Build a body profile, choose tailored office pieces, and preview the full look with fit guidance before adding it to cart.',
       chooseBodyAreaAria: 'Choose body area',
       upperRegion: 'Upper body',
       lowerRegion: 'Waist / hips',
@@ -249,6 +249,7 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
         waist: 'Waist',
         hips: 'Hips',
         inseam: 'Leg / inseam',
+        weight: 'Weight',
       },
       handles: {
         height: 'Height',
@@ -259,6 +260,7 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
         inseam: 'Leg',
         pantHem: 'Pant hem',
         skirtHem: 'Skirt hem',
+        dressHem: 'Dress hem',
       },
       products: {
         'silk-blouse': {
@@ -313,6 +315,15 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
             ink: 'Ink',
             camel: 'Camel',
             'winter-white': 'Winter white',
+          },
+        },
+        'executive-sheath-dress': {
+          name: 'Executive Sheath Dress',
+          category: 'Structured office dress',
+          colors: {
+            espresso: 'Espresso',
+            ink: 'Ink',
+            'winter-cream': 'Winter cream',
           },
         },
       },
@@ -524,6 +535,7 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
         shoulders: 'Vai',
         bust: 'Ngực',
         waist: 'Eo',
+        weight: 'Can nang',
         hips: 'Hông',
         inseam: 'Chân / đáy quần',
       },
@@ -532,6 +544,7 @@ export const virtualTryOnMessages: Record<'en' | 'vi', VirtualTryOnMessages> = {
         shoulders: 'Vai',
         bust: 'Ngực',
         waist: 'Eo',
+        dressHem: 'Gau vay lien',
         hips: 'Hông',
         inseam: 'Chân',
         pantHem: 'Gấu quần',

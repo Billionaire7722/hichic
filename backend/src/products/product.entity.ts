@@ -4,7 +4,9 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
+import { ProductImage } from './product-image.entity';
 
 @Entity('products')
 export class Product {
@@ -34,6 +36,12 @@ export class Product {
 
   @Column()
   image: string;
+
+  @Column({ nullable: true })
+  imagePublicId: string;
+
+  @OneToMany(() => ProductImage, (image) => image.product)
+  images: ProductImage[];
 
   /** 'shirt' | 'blazer' | 'trousers' | 'skirt' */
   @Column({ nullable: true })
